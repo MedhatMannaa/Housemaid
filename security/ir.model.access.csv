@@ -1,2 +1,14 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_housemaid_housemaid,housemaid.housemaid,model_housemaid_housemaid,base.group_user,1,1,1,1
+access_housemaid_application,housemaid.application,housemaid.model_housemaid_application,housemaid_users_group,1,1,1,1
+access_housemaid_reservation,housemaid.reservation,housemaid.model_housemaid_reservation,housemaid_users_group,1,1,1,1
+access_housemaid_externaloffices,housemaid.externaloffices,housemaid.model_housemaid_externaloffices,housemaid_users_group,1,1,1,1
+access_housemaid_visa,housemaid.visa,housemaid.model_housemaid_visa,housemaid_users_group,1,1,1,1
+
+
+
+
+
+
+
+
+

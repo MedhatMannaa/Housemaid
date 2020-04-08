@@ -24,15 +24,17 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/housemaid_security.xml',
+        'security/ir.model.access.csv',
         'views/application_view.xml',
         'views/external_offices_view.xml',
-        'views/views.xml',
-        'views/templates.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
 }
