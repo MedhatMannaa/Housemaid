@@ -10,7 +10,7 @@
         Housemaid System 
     """,
 
-    'author': "My Company",
+    'author': "Medhat Mannaa",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
