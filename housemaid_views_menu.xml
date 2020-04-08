@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!--        Top menu item-->
+        <menuitem name="Housemaid" id="housemaid.menu_root"/>
+        <!--        menu categories-->
+        <menuitem name="Main Process" id="housemaid.main_process" parent="housemaid.menu_root"/>
+        <menuitem name="Reports" id="housemaid.reports" parent="housemaid.menu_root"/>
+        <menuitem name="Configuration" id="housemaid.configuration" parent="housemaid.menu_root"/>
+        <!--        actions-->
+        <menuitem name="Application" id="housemaid.application" parent="housemaid.main_process"
+                  action="housemaid.housemaid_application_action"/>
+        <menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
+                  action="housemaid.external_offices_action"/>
+
+    </data>
+</odoo>
