@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-var = {
+{
     'name': "housemaid",
 
     'summary': """
