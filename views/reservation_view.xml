@@ -9,8 +9,12 @@
                 <form string="Reservation">
                     <sheet>
                         <group>
-                            <field name="application_id"/>
-                            <field name="reservation_date"/>
+                            <group>
+                                <field name="application_id"/>
+                            </group>
+                            <group>
+                                <field name="reservation_date"/>
+                            </group>
                         </group>
                         <group>
                             <field name="customer_name"/>
@@ -21,13 +25,15 @@
                             <field name="due_amount"/>
                         </group>
                         <group>
-                            <field name="cash_payment_amount"/>
-                            <field name="knet_payment_amount"/>
-                            <field name="vise_payment_amount"/>
-                        </group>
-                        <group>
-                            <field name="other_payment_amount"/>
-                            <field name="other_payment_method"/>
+                            <group>
+                                <field name="cash_payment_amount"/>
+                                <field name="knet_payment_amount"/>
+                                <field name="vise_payment_amount"/>
+                            </group>
+                            <group>
+                                <field name="other_payment_amount"/>
+                                <field name="other_payment_method"/>
+                            </group>
                         </group>
                         <group>
                             <field name="remarks"/>
@@ -51,7 +57,7 @@
                     <field name="vise_payment_amount"/>
                     <field name="other_payment_amount"/>
                     <field name="other_payment_method"/>
-                    <field name="remarks"/>
+                    pg<field name="remarks"/>
                 </tree>
             </field>
         </record>
