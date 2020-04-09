@@ -9,7 +9,7 @@
                 <form string="Reservation">
                     <sheet>
                         <group>
-                            <field name="application_id"/>
+                            <field name="application"/>
                             <field name="reservation_date"/>
                         </group>
                         <group>
@@ -42,7 +42,7 @@
             <field name="model">housemaid.reservation</field>
             <field name="arch" type="xml">
                 <tree string="Reservation Transactions">
-                    <field name="application_id"/>
+                    <field name="application"/>
                     <field name="reservation_date"/>
                     <field name="customer_name"/>
                     <field name="due_amount"/>
