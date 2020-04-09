@@ -20,8 +20,8 @@ class application(models.Model):
                                       string="Marital Status",
                                       default='0', required=True, )
     salary = fields.Integer(string="Monthly Salary", required=True, copy=True)
-    image_1920 = fields.Image(string="Application Image", )
-    image_1921 = fields.Image(string="Passport Image", )
+    application_scan = fields.Image(string="Application Image", )
+    passport_scan = fields.Image(string="Passport Image", )
     country_id = fields.Many2one('res.country', 'Nationality')
     externaloffices_id = fields.Many2one('housemaid.externaloffices', 'External Office')
     religion = fields.Selection(selection=[('1', 'Christian'),
