@@ -28,8 +28,6 @@
         'security/ir.model.access.csv',
         'views/application_view.xml',
         'views/external_offices_view.xml',
-        'views/reservation_view.xml',
-        'views/visa_view.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
