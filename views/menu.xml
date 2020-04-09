@@ -9,10 +9,6 @@
         <!--        actions-->
         <menuitem name="Application" id="housemaid.application" parent="housemaid.main_process"
                   action="housemaid.housemaid_application_action"/>
-        <menuitem name="Reservations" id="housemaid.reservation" parent="housemaid.main_process"
-                  action="housemaid.reservation_action"/>
-        <menuitem name="Visa Transactions" id="housemaid.visa" parent="housemaid.main_process"
-                  action="housemaid.visa_action"/>
         <menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
                   action="housemaid.external_offices_action"/>
 
