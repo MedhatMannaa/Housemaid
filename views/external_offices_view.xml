@@ -8,8 +8,8 @@
             <field name="arch" type="xml">
                 <form string="External Offices">
                     <sheet>
-                        <field name="image_1920" widget='image'
-                               class="oe_avatar" options='{"zoom": true, "preview_image":"image_128"}'/>
+                        <field name="office_logo" widget='image'
+                               class="oe_avatar" options='{"zoom": true, "preview_image":"office_logo"}'/>
                         <div class="oe_title">
                             <h2>
                                 <field name="office_name"/>

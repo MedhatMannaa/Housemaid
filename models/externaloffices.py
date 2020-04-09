@@ -8,7 +8,7 @@ class externaloffices(models.Model):
 
     office_name = fields.Char(string="Office Name", required=True, size=100, )
     office_short_ref = fields.Char(string="Office Short Ref", required=True, size=60, )
-    image_1920 = fields.Image(string="Office Licence", )
+    office_logo = fields.Image(string="Office Licence", )
     owner_name = fields.Char(string="Office Owner Name", required=True, size=120, )
     country_id = fields.Many2one('res.country', 'Nationality')
     adress = fields.Char(string="Address Details", required=True, size=60, )
