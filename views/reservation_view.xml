@@ -2,24 +2,23 @@
     <data>
 
 
-        <record id="visa_form_view" model="ir.ui.view">
-            <field name="name">housemaid.visa</field>
-            <field name="model">housemaid.visa</field>
+        <record id="reservation_form_view" model="ir.ui.view">
+            <field name="name">housemaid.reservation</field>
+            <field name="model">housemaid.reservation</field>
             <field name="arch" type="xml">
-                <form string="Visa">
+                <form string="Reservation">
                     <sheet>
                         <group>
-                            <group>
-                                <field name="application_id"/>
-                                <field name="customer"/>
-                                <field name="visa_number"/>
-                                <field name="labor_id"/>
-                            </group>
-                            <group>
-                                <field name="visa_create_date"/>
-                                <field name="visa_receive_date"/>
-                                <field name="visa_sent_date"/>
-                            </group>
+                            <field name="application_id"/>
+                            <field name="reservation_date"/>
+                        </group>
+                        <group>
+                            <field name="customer_name"/>
+                            <field name="customer_area"/>
+                            <field name="customer_phone"/>
+                        </group>
+                        <group>
+                            <field name="due_amount"/>
                         </group>
                         <group>
                             <field name="cash_payment_amount"/>
@@ -38,18 +37,15 @@
             </field>
         </record>
 
-        <record id="visa_tree_view" model="ir.ui.view">
-            <field name="name">housemaid.visa</field>
-            <field name="model">housemaid.visa</field>
+        <record id="reservation_tree_view" model="ir.ui.view">
+            <field name="name">housemaid.reservation</field>
+            <field name="model">housemaid.reservation</field>
             <field name="arch" type="xml">
-                <tree string="Visa">
+                <tree string="Reservation Transactions">
                     <field name="application_id"/>
-                    <field name="customer"/>
-                    <field name="visa_number"/>
-                    <field name="labor_id"/>
-                    <field name="visa_create_date"/>
-                    <field name="visa_receive_date"/>
-                    <field name="visa_sent_date"/>
+                    <field name="reservation_date"/>
+                    <field name="customer_name"/>
+                    <field name="due_amount"/>
                     <field name="cash_payment_amount"/>
                     <field name="knet_payment_amount"/>
                     <field name="vise_payment_amount"/>
@@ -60,16 +56,16 @@
             </field>
         </record>
 
-        <record id="visa_action" model="ir.actions.act_window">
-            <field name="name">Visa</field>
+        <record id="reservation_action" model="ir.actions.act_window">
+            <field name="name">Reservation</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">housemaid.visa</field>
+            <field name="res_model">housemaid.reservation</field>
             <field name="view_mode">tree,form</field>
             <field name="target">current</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     <!-- Add Text Here -->
-                    No Visa Recorded
+                    No Reservation Recorded
                 </p>
                 <p>
                     <!-- More details about what a user can do with this object will be OK -->
