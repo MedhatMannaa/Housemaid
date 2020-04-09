@@ -6,6 +6,9 @@ class visa(models.Model):
     _description = 'Full Housemaid Visa Transaction Information'
 
     application_id = fields.Many2one('housemaid.application', 'Housemaid')
+    customer = fields.Char(string="Customer", required=False, size=120, )
+    visa_number = fields.Char(string="Visa Number", required=False, size=80, )
+    labor_id = fields.Char(string="Labor ID", required=False, size=80, )
     visa_create_date = fields.Date(string="Visa Create Date", required=True, )
     visa_receive_date = fields.Date(string="Visa Receive Date", required=True, defualt=fields.Date.context_today, )
     visa_sent_date = fields.Date(string="Visa Sent Date", required=True, )
@@ -22,4 +25,4 @@ class visa(models.Model):
                                                        ('6', 'PayUmoney'), ],
                                             string="Other Payment Method",
                                             required=False, )
-    remarks = fields.Char(string="Remarks", required=True, size=255, )
+    remarks = fields.Char(string="Remarks", required=False, size=255, )

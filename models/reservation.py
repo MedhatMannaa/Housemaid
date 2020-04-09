@@ -24,4 +24,4 @@ class reservation(models.Model):
                                                        ('6', 'PayUmoney'), ],
                                             string="Other Payment Method",
                                             required=False, )
-    remarks = fields.Char(string="Remarks", required=True, size=255, )
+    remarks = fields.Char(string="Remarks", required=False, size=255, )
