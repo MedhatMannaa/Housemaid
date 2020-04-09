@@ -45,8 +45,6 @@
                     <field name="application_id"/>
                     <field name="reservation_date"/>
                     <field name="customer_name"/>
-                    <field name="customer_area"/>
-                    <field name="customer_phone"/>
                     <field name="due_amount"/>
                     <field name="cash_payment_amount"/>
                     <field name="knet_payment_amount"/>
