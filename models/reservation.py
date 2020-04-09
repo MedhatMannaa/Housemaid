@@ -5,7 +5,7 @@ class reservation(models.Model):
     _name = 'housemaid.reservation'
     _description = 'Full Housemaid Reservation Transaction Information'
 
-    application_id = fields.Many2many('housemaid.application', 'Housemaid')
+    application_id = fields.One2many('housemaid.application', 'Housemaid Name')
     reservation_date = fields.Date(string="Reservation Date", required=True, defualt=fields.Date.context_today, )
     customer_name = fields.Char(string="Customer Name", required=True, size=80, )
     customer_area = fields.Char(string="Customer Area", required=True, size=80, )
