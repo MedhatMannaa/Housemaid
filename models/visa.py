@@ -5,7 +5,7 @@ class visa(models.Model):
     _name = 'housemaid.visa'
     _description = 'Full Housemaid Visa Transaction Information'
 
-    application_id = fields.Many2one('housemaid.application', 'Housemaid')
+    application_id = fields.Many2many('housemaid.application', 'Housemaid')
     customer = fields.Char(string="Customer", required=False, size=120, )
     visa_number = fields.Char(string="Visa Number", required=False, size=80, )
     labor_id = fields.Char(string="Labor ID", required=False, size=80, )
