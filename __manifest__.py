@@ -36,7 +36,7 @@
     'demo': [
         'demo/demo.xml',
         'demo/exernal_offices_demo.xml',
-        'demo/applications_demo.xml',
+
     ],
     'installable': True,
     'application': True,
