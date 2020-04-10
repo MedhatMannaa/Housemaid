@@ -10,7 +10,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="application_id"/>
+                                <field name="name" options="{'no_create': True, 'no_open': True}" />
                             </group>
                             <group>
                                 <field name="reservation_date"/>
@@ -48,7 +48,7 @@
             <field name="model">housemaid.reservation</field>
             <field name="arch" type="xml">
                 <tree string="Reservation Transactions">
-                    <field name="application_id"/>
+                    <field name="name"/>
                     <field name="reservation_date"/>
                     <field name="customer_name"/>
                     <field name="due_amount"/>
@@ -57,7 +57,7 @@
                     <field name="vise_payment_amount"/>
                     <field name="other_payment_amount"/>
                     <field name="other_payment_method"/>
-                    pg<field name="remarks"/>
+                    <field name="remarks"/>
                 </tree>
             </field>
         </record>

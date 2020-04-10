@@ -10,7 +10,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="application_id"/>
+                                <field name="name"/>
                                 <field name="customer"/>
                                 <field name="visa_number"/>
                                 <field name="labor_id"/>
@@ -43,7 +43,7 @@
             <field name="model">housemaid.visa</field>
             <field name="arch" type="xml">
                 <tree string="Visa">
-                    <field name="application_id"/>
+                    <field name="name" options="{'no_create': True, 'no_open': True}"/>
                     <field name="customer"/>
                     <field name="visa_number"/>
                     <field name="labor_id"/>

@@ -12,7 +12,7 @@
                                class="oe_avatar" options='{"zoom": true, "preview_image":"office_logo"}'/>
                         <div class="oe_title">
                             <h2>
-                                <field name="office_name"/>
+                                <field name="name"/>
                             </h2>
                             <h3>
                                 <field name="office_short_ref"/>
@@ -30,8 +30,8 @@
                             <field name="email"/>
                         </group>
                         <group>
-                            <field name="country_id"/>
-                            <field name="currency_id" options="{'no_create': True, 'no_open': True}"
+                            <field name="country"/>
+                            <field name="currency" options="{'no_create': True, 'no_open': True}"
                                    id="company_currency" context="{'active_test': False}"/>
                         </group>
                     </sheet>
@@ -44,17 +44,17 @@
             <field name="model">housemaid.externaloffices</field>
             <field name="arch" type="xml">
                 <tree string="Housemaid External Offices">
-                    <field name="office_name"/>
+                    <field name="name"/>
                     <field name="office_short_ref"/>
                     <field name="owner_name"/>
-                    <field name="country_id"/>
+                    <field name="country"/>
                     <field name="bank_name"/>
                     <field name="bank_ac_number"/>
                     <field name="adress"/>
                     <field name="phone_number"/>
                     <field name="fax_number"/>
                     <field name="email"/>
-                    <field name="currency_id"/>
+                    <field name="currency"/>
                 </tree>
             </field>
         </record>

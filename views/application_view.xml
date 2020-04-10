@@ -23,8 +23,8 @@
                         </div>
                         <group>
                             <group>
-                                <field name="externaloffices_id"/>
-                                <field name="country_id"/>
+                                <field name="external_offices"/>
+                                <field name="country"/>
                                 <field name="postapplied"/>
                                 <field name="salary"/>
                             </group>
@@ -75,7 +75,8 @@
                     <field name="gender"/>
                     <field name="marital_status"/>
                     <field name="salary"/>
-                    <field name="country_id"/>
+                    <field name="country"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>

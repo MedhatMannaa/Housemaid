@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+        <record id="housemaid_externaloffices_1" model="housemaid.externaloffices">
+            <field name="name">Full Name of Office NO 1</field>
+            <field name="office_short_ref">Short Name of Office NO 1</field>
+            <field name="owner_name">Owner of Office NO 1</field>
+			<field name="office_logo" type="base64" file="housemaid/static/img/office_logo_1.jpeg"/>
+			<field name="country" ref="base.ph"/>
+			<field name="adress">Test Address of Office NO 1</field>
+			<field name="bank_ac_number">Bank Account Office NO 1</field>
+			<field name="bank_name">Bank Name Office NO 1</field>
+			<field name="email">Email Office NO 1</field>
+			<field name="phone_number">Phone Number Office NO 1</field>
+			<field name="fax_number">FAX Number Office NO 1</field>
+        </record>
+		<record id="housemaid_externaloffices_2" model="housemaid.externaloffices">
+            <field name="name">Full Name of Office NO 2</field>
+            <field name="office_short_ref">Short Name of Office NO 2</field>
+            <field name="owner_name">Owner of Office NO 2</field>
+			<field name="office_logo" type="base64" file="housemaid/static/img/office_logo_2.jpeg"/>
+			<field name="country" ref="base.ph"/>
+			<field name="adress">Test Address of Office NO 2</field>
+			<field name="bank_ac_number">Bank Account Office NO 2</field>
+			<field name="bank_name">Bank Name Office NO 2</field>
+			<field name="email">Email Office NO 2</field>
+			<field name="phone_number">Phone Number Office NO 2</field>
+			<field name="fax_number">FAX Number Office NO 2</field>
+        </record>
+        <record id="housemaid_externaloffices_3" model="housemaid.externaloffices">
+            <field name="name">Full Name of Office NO 3</field>
+            <field name="office_short_ref">Short Name of Office NO 3</field>
+            <field name="owner_name">Owner of Office NO 3</field>
+			<field name="office_logo" type="base64" file="housemaid/static/img/office_logo_3.jpeg"/>
+			<field name="country" ref="base.ph"/>
+			<field name="adress">Test Address of Office NO 3</field>
+			<field name="bank_ac_number">Bank Account Office NO 3</field>
+			<field name="bank_name">Bank Name Office NO 3</field>
+			<field name="email">Email Office NO 3</field>
+			<field name="phone_number">Phone Number Office NO 3</field>
+			<field name="fax_number">FAX Number Office NO 3</field>
+        </record>
+		<record id="housemaid_externaloffices_4" model="housemaid.externaloffices">
+            <field name="name">Full Name of Office NO 4</field>
+            <field name="office_short_ref">Short Name of Office NO 4</field>
+            <field name="owner_name">Owner of Office NO 4</field>
+			<field name="office_logo" type="base64" file="housemaid/static/img/office_logo_4.jpeg"/>
+			<field name="country" ref="base.ph"/>
+			<field name="adress">Test Address of Office NO 4</field>
+			<field name="bank_ac_number">Bank Account Office NO 4</field>
+			<field name="bank_name">Bank Name Office NO 4</field>
+			<field name="email">Email Office NO 4</field>
+			<field name="phone_number">Phone Number Office NO 4</field>
+			<field name="fax_number">FAX Number Office NO 4</field>
+        </record>
+        <record id="housemaid_externaloffices_5" model="housemaid.externaloffices">
+            <field name="name">Full Name of Office NO 5</field>
+            <field name="office_short_ref">Short Name of Office NO 5</field>
+            <field name="owner_name">Owner of Office NO 5</field>
+			<field name="office_logo" type="base64" file="housemaid/static/img/office_logo_5.jpeg"/>
+			<field name="country" ref="base.ph"/>
+			<field name="adress">Test Address of Office NO 5</field>
+			<field name="bank_ac_number">Bank Account Office NO 5</field>
+			<field name="bank_name">Bank Name Office NO 5</field>
+			<field name="email">Email Office NO 5</field>
+			<field name="phone_number">Phone Number Office NO 5</field>
+			<field name="fax_number">FAX Number Office NO 5</field>
+        </record>
+        <record id="housemaid_externaloffices_6" model="housemaid.externaloffices">
+            <field name="name">Full Name of Office NO 6</field>
+            <field name="office_short_ref">Short Name of Office NO 6</field>
+            <field name="owner_name">Owner of Office NO 6</field>
+			<field name="office_logo" type="base64" file="housemaid/static/img/office_logo_6.jpeg"/>
+			<field name="country" ref="base.ph"/>
+			<field name="adress">Test Address of Office NO 6</field>
+			<field name="bank_ac_number">Bank Account Office NO 6</field>
+			<field name="bank_name">Bank Name Office NO 6</field>
+			<field name="email">Email Office NO 6</field>
+			<field name="phone_number">Phone Number Office NO 6</field>
+			<field name="fax_number">FAX Number Office NO 6</field>
+        </record>
+    </data>
+</odoo>

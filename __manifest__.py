@@ -35,6 +35,7 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'demo/exernal_offices_demo.xml',
     ],
     'installable': True,
     'application': True,

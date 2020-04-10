@@ -1,52 +1,61 @@
 from odoo import models, fields, api
 
+app_state = [('new_application', 'New Application'),
+             ('cancel_application', 'Cancel Application'),
+             ('reservation', 'Reservation'),
+             ('visa', 'Visa'),
+             ('expecting_arrival', 'Expecting Arrival'),
+             ('arrived', 'Arrived'),
+             ('delivered', 'Delivered'),
+             ]
 
-class application(models.Model):
+
+class Application(models.Model):
     _name = 'housemaid.application'
     _description = 'Housemaid Application with Full Information of the Housemaid'
 
     create_date = fields.Date(string="Create Date", required=True, defualt=fields.Date.context_today, )
     ref_number = fields.Char(string="Ref No", required=True, size=20, )
     name = fields.Char(string="Housemaid Name", required=True, size=60, )
-    gender = fields.Selection(selection=[('0', 'Male'),
-                                         ('1', 'Female'),
-                                         ('2', 'Other'), ],
+    gender = fields.Selection(selection=[('male', 'Male'),
+                                         ('female', 'Female'),
+                                         ('other', 'Other'), ],
                               string="Gender",
-                              default='1', required=True, )
-    marital_status = fields.Selection(selection=[('0', 'Single'),
-                                                 ('1', 'Married'),
-                                                 ('2', 'Divorced'),
-                                                 ('3', 'Widow'), ],
+                              default='female', required=True, )
+    marital_status = fields.Selection(selection=[('single', 'Single'),
+                                                 ('married', 'Married'),
+                                                 ('divorced', 'Divorced'),
+                                                 ('widow', 'Widow'), ],
                                       string="Marital Status",
-                                      default='0', required=True, )
+                                      required=True, )
     salary = fields.Integer(string="Monthly Salary", required=True, copy=True)
     application_scan = fields.Image(string="Application Image", )
     passport_scan = fields.Image(string="Passport Image", )
-    country_id = fields.Many2one('res.country', 'Nationality')
-    externaloffices_id = fields.Many2one('housemaid.externaloffices', 'External Office')
-    religion = fields.Selection(selection=[('1', 'Christian'),
-                                           ('2', 'Muslim'),
-                                           ('3', 'Jewish'),
-                                           ('4', 'Buddhist'),
-                                           ('5', 'Hindu'),
-                                           ('6', 'Others'), ],
+    country = fields.Many2one(comodel_name='res.country', string='Nationality')
+    external_offices = fields.Many2one(comodel_name='housemaid.externaloffices', string='External Office')
+    religion = fields.Selection(selection=[('christian', 'Christian'),
+                                           ('muslim', 'Muslim'),
+                                           ('jewish', 'Jewish'),
+                                           ('buddhist', 'Buddhist'),
+                                           ('hindu', 'Hindu'),
+                                           ('others', 'Others'), ],
                                 string="Religion",
                                 required=True, )
-    education_level = fields.Selection(selection=[('0', 'Non Educated'),
-                                                  ('1', 'Literacy'),
-                                                  ('2', 'Primary School'),
-                                                  ('3', 'Prep School'),
-                                                  ('4', 'High School'),
-                                                  ('5', 'University Education'),
-                                                  ('6', 'Postgraduate Education'), ],
+    education_level = fields.Selection(selection=[('non_educated', 'Non Educated'),
+                                                  ('literacy', 'Literacy'),
+                                                  ('primary_school', 'Primary School'),
+                                                  ('prep_school', 'Prep School'),
+                                                  ('high_school', 'High School'),
+                                                  ('university_education', 'University Education'),
+                                                  ('postgraduate_education', 'Postgraduate Education'), ],
                                        string="Education Level",
                                        required=True, )
     birth_date = fields.Date(string="Birth Date", required=False, )
-    postapplied = fields.Selection(selection=[('0', 'Housemaid'),
-                                              ('1', 'baby Sitter'),
-                                              ('2', 'Cooker'),
-                                              ('3', 'Gardener'),
-                                              ('4', 'Guard'), ],
+    postapplied = fields.Selection(selection=[('housemaid', 'Housemaid'),
+                                              ('baby_sitter', 'Baby Sitter'),
+                                              ('cooker', 'Cooker'),
+                                              ('gardener', 'Gardener'),
+                                              ('guard', 'Guard'), ],
                                    string="Acceptable Job",
                                    required=True, )
     passport = fields.Char(string="Passport No", required=True, size=60, )
@@ -60,3 +69,4 @@ class application(models.Model):
     experience_3 = fields.Char(string="Third Experience", required=False, size=150, )
     contacts = fields.Char(string="Contact Numbers", required=False, size=80, )
     arrival_date = fields.Date(string="Arrival Date", required=False, )
+    state = fields.Selection(string="Application Status", required=True, selection=app_state, default='new_application')
