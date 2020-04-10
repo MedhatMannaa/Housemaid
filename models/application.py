@@ -1,4 +1,10 @@
 from odoo import models, fields, api
+import logging
+from odoo.exceptions import ValidationError
+
+
+
+logger = logging.getLogger(__name__)
 
 app_state = [('new_application', 'New Application'),
              ('cancel_application', 'Cancel Application'),
@@ -51,6 +57,7 @@ class Application(models.Model):
                                        string="Education Level",
                                        required=True, )
     birth_date = fields.Date(string="Birth Date", required=False, )
+    age = fields.Integer(string="Age", required=True, copy=True)
     postapplied = fields.Selection(selection=[('housemaid', 'Housemaid'),
                                               ('baby_sitter', 'Baby Sitter'),
                                               ('cooker', 'Cooker'),
@@ -70,3 +77,60 @@ class Application(models.Model):
     contacts = fields.Char(string="Contact Numbers", required=False, size=80, )
     arrival_date = fields.Date(string="Arrival Date", required=False, )
     state = fields.Selection(string="Application Status", required=True, selection=app_state, default='new_application')
+
+
+
+    # override create function
+    @api.model
+    def create(self, vals):
+        try:
+
+            application = super(Application, self).create(vals)
+            return application
+
+
+        except Exception as e:
+            logger.exception("Create Method")
+            raise ValidationError(e)
+
+
+
+
+    # override write function
+    def write(self, vals):
+        try:
+
+
+            application = super(Application, self).write(vals)
+            return application
+
+
+        except Exception as e:
+            logger.exception("Write Method")
+            raise ValidationError(e)
+
+
+
+    # override unlink function
+    def unlink(self):
+        try:
+
+            application = super(Application, self).unlink()
+            return application
+
+
+        except Exception as e:
+            logger.exception("Unlink Method")
+            raise ValidationError(e)
+
+
+
+    def application_cancelapplication_action(self):
+        self.state = 'cancel_application'
+
+    def application_reactiveapplication_action(self):
+        self.state = 'new_application'
+
+
+
+

@@ -7,6 +7,24 @@
             <field name="model">housemaid.application</field>
             <field name="arch" type="xml">
                 <form string="Application">
+                    <header>
+                        <button name="application_cancelapplication_action"
+                                string="Cancel This Application"
+                                type="object"
+                                states="new_application"
+                                confirm="Are you sure you want to cancel this application?"
+                                class="oe_highlight oe_inline"/>
+                        <button name="application_reactiveapplication_action"
+                                string="Reactive This Application"
+                                type="object"
+                                states="cancel_application"
+                                confirm="Are you sure you want to Reactive this application?"
+                                class="oe_highlight oe_inline"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="new_application,cancel_application,reservation,visa,expecting_arrival
+                                          ,arrived,delivered"/>
+
+                    </header>
                     <sheet>
                         <field name="application_scan" widget='image'
                                class="oe_avatar" options='{"zoom": true, "preview_image":"application_scan"}'/>
@@ -31,6 +49,7 @@
                             <group>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
+                                <field name="age"/>
                                 <field name="marital_status"/>
                                 <field name="religion"/>
                             </group>
