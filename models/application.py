@@ -57,7 +57,7 @@ class Application(models.Model):
                                        string="Education Level",
                                        required=True, )
     birth_date = fields.Date(string="Birth Date", required=False, )
-    age = fields.Integer(string="Age", required=True, copy=True)
+    age = fields.Integer(string="Age", required=False, copy=True)
     postapplied = fields.Selection(selection=[('housemaid', 'Housemaid'),
                                               ('baby_sitter', 'Baby Sitter'),
                                               ('cooker', 'Cooker'),

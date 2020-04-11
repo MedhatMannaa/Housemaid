@@ -1,4 +1,10 @@
 from odoo import models, fields, api
+import logging
+from odoo.exceptions import ValidationError
+
+
+
+logger = logging.getLogger(__name__)
 
 
 class Reservation(models.Model):
@@ -27,10 +33,55 @@ class Reservation(models.Model):
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Reservation Status", required=True,
                               selection=[('active', 'Active Reservation'),
-                                         ('canceled', 'Canceled Reservation'), ], default=0)
+                                         ('canceled', 'Canceled Reservation'), ], default='active')
+
+    # override create function
+    @api.model
+    def create(self, vals):
+        try:
+
+            reservation = super(Reservation, self).create(vals)
+            return reservation
+
+
+        except Exception as e:
+            logger.exception("Create Method")
+            raise ValidationError(e)
+
+
+
+
+    # override write function
+    def write(self, vals):
+        try:
+
+
+            reservation = super(Reservation, self).write(vals)
+            return reservation
+
+
+        except Exception as e:
+            logger.exception("Write Method")
+            raise ValidationError(e)
+
+
+
+    # override unlink function
+    def unlink(self):
+        try:
+
+            reservation = super(Reservation, self).unlink()
+            return reservation
+
+
+        except Exception as e:
+            logger.exception("Unlink Method")
+            raise ValidationError(e)
+
+
 
     def reservatioin_cancelreservation_action(self):
-        self.status = 'canceled'
+        self.state = 'canceled'
 
     def reservatioin_reactivereservation_action(self):
-        self.status = 'active'
+        self.state = 'active'
