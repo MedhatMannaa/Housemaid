@@ -238,7 +238,7 @@
         </record>
         <record id="row_application_10" model="housemaid.application">
             <field name="create_date" eval="'2020-04-11'"/>
-            <field name="ref_number">OF1-0010</field>
+            <field name="ref_number">OF4-0010</field>
             <field name="name">Full Name for Housemaid NO 10</field>
             <field name="gender">female</field>
             <field name="marital_status">single</field>
@@ -290,7 +290,7 @@
         </record>
         <record id="row_application_12" model="housemaid.application">
             <field name="create_date" eval="'2020-04-11'"/>
-            <field name="ref_number">OF1-0012</field>
+            <field name="ref_number">OF4-0012</field>
             <field name="name">Full Name for Housemaid NO 12</field>
             <field name="gender">female</field>
             <field name="marital_status">single</field>
