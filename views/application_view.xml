@@ -12,13 +12,13 @@
                                 string="Cancel This Application"
                                 type="object"
                                 states="new_application"
-                                confirm="Are you sure you want to cancel this application?"
+                                confirm="Are you sure you want to cancel this Application?"
                                 class="oe_highlight oe_inline"/>
                         <button name="application_reactiveapplication_action"
                                 string="Reactive This Application"
                                 type="object"
                                 states="cancel_application"
-                                confirm="Are you sure you want to Reactive this application?"
+                                confirm="Are you sure you want to Reactive this Application?"
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="new_application,cancel_application,reservation,visa,expecting_arrival

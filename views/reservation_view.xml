@@ -7,10 +7,26 @@
             <field name="model">housemaid.reservation</field>
             <field name="arch" type="xml">
                 <form string="Reservation">
+                    <header>
+                        <button name="reservatioin_cancelreservation_action"
+                                string="Cancel This Reservation"
+                                type="object"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Reservation?"
+                                class="oe_highlight oe_inline"/>
+                        <button name="reservatioin_reactivereservation_action"
+                                string="Reactive This Reservation"
+                                type="object"
+                                states="canceled"
+                                confirm="Are you sure you want to Reactive this Reservation?"
+                                class="oe_highlight oe_inline"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,canceled,"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="name" options="{'no_create': True, 'no_open': True}" />
+                                <field name="name" options="{'no_create': True, 'no_open': True}"/>
                             </group>
                             <group>
                                 <field name="reservation_date"/>
@@ -57,6 +73,7 @@
                     <field name="vise_payment_amount"/>
                     <field name="other_payment_amount"/>
                     <field name="other_payment_method"/>
+                    <field name="state"/>
                     <field name="remarks"/>
                 </tree>
             </field>

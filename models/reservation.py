@@ -25,6 +25,12 @@ class Reservation(models.Model):
                                             string="Other Payment Method",
                                             required=False, )
     remarks = fields.Char(string="Remarks", required=False, size=255, )
-    status = fields.Selection(string="Reservation Status", required=True,
+    state = fields.Selection(string="Reservation Status", required=True,
                               selection=[('active', 'Active Reservation'),
                                          ('canceled', 'Canceled Reservation'), ], default=0)
+
+    def reservatioin_cancelreservation_action(self):
+        self.status = 'canceled'
+
+    def reservatioin_reactivereservation_action(self):
+        self.status = 'active'
