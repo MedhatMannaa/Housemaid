@@ -5,7 +5,7 @@ class Visa(models.Model):
     _name = 'housemaid.visa'
     _description = 'Full Housemaid Visa Transaction Information'
 
-    name = fields.Many2one(comodel_name='housemaid.application', string='name', domain=[('state', '=', 2)])
+    name = fields.Many2one(comodel_name='housemaid.application', string='name', domain=[('state', '=', 'reservation')])
     customer = fields.Char(string="Customer", required=False, size=120, )
     visa_number = fields.Char(string="Visa Number", required=False, size=80, )
     labor_id = fields.Char(string="Labor ID", required=False, size=80, )
@@ -28,4 +28,4 @@ class Visa(models.Model):
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     status = fields.Selection(string="Visa Status", required=True,
                               selection=[('active', 'Active Visa'),
-                                         ('canceled', 'Canceled Visa'), ], default=0)
+                                         ('canceled', 'Canceled Visa'), ], default='active')

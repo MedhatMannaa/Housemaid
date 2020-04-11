@@ -55,6 +55,7 @@
                     <field name="vise_payment_amount"/>
                     <field name="other_payment_amount"/>
                     <field name="other_payment_method"/>
+                    <field name="status"/>
                     <field name="remarks"/>
                 </tree>
             </field>

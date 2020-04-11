@@ -8,17 +8,17 @@
             <field name="arch" type="xml">
                 <form string="Reservation">
                     <header>
-                        <button name="reservatioin_cancelreservation_action"
-                                string="Cancel This Reservation"
+                        <button name="reservatioin_cancelreservation_byemployer_action"
+                                string="Cancel This Reservation (By Sponsor)"
                                 type="object"
                                 states="active"
                                 confirm="Are you sure you want to cancel this Reservation?"
                                 class="oe_highlight oe_inline"/>
-                        <button name="reservatioin_reactivereservation_action"
-                                string="Reactive This Reservation"
+                        <button name="reservatioin_cancelreservation_byexofice_action"
+                                string="Cancel This Reservation (By External Office)"
                                 type="object"
-                                states="canceled"
-                                confirm="Are you sure you want to Reactive this Reservation?"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Reservation?"
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="active,canceled,"/>

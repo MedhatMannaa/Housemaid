@@ -2,8 +2,6 @@ from odoo import models, fields, api
 import logging
 from odoo.exceptions import ValidationError
 
-
-
 logger = logging.getLogger(__name__)
 
 
@@ -11,7 +9,8 @@ class Reservation(models.Model):
     _name = 'housemaid.reservation'
     _description = 'Full Housemaid Reservation Transaction Information'
 
-    name = fields.Many2one(comodel_name='housemaid.application', string='name', domain=[('state', '=', 'new_application')], )
+    name = fields.Many2one(comodel_name='housemaid.application', string='name',
+                           domain=[('state', '=', 'new_application')], )
     reservation_date = fields.Date(string="Reservation Date", required=True, defualt=fields.Date.context_today, )
     customer_name = fields.Char(string="Customer Name", required=True, size=80, )
     customer_area = fields.Char(string="Customer Area", required=True, size=80, )
@@ -32,8 +31,8 @@ class Reservation(models.Model):
                                             required=False, )
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Reservation Status", required=True,
-                              selection=[('active', 'Active Reservation'),
-                                         ('canceled', 'Canceled Reservation'), ], default='active')
+                             selection=[('active', 'Active Reservation'),
+                                        ('canceled', 'Canceled Reservation'), ], default='active')
 
     # override create function
     @api.model
@@ -41,6 +40,10 @@ class Reservation(models.Model):
         try:
 
             reservation = super(Reservation, self).create(vals)
+
+            application = self.env['housemaid.application'].search([('id', '=', reservation.name.id)], limit=1)
+            application.state = 'reservation'
+
             return reservation
 
 
@@ -48,13 +51,9 @@ class Reservation(models.Model):
             logger.exception("Create Method")
             raise ValidationError(e)
 
-
-
-
     # override write function
     def write(self, vals):
         try:
-
 
             reservation = super(Reservation, self).write(vals)
             return reservation
@@ -63,8 +62,6 @@ class Reservation(models.Model):
         except Exception as e:
             logger.exception("Write Method")
             raise ValidationError(e)
-
-
 
     # override unlink function
     def unlink(self):
@@ -78,10 +75,20 @@ class Reservation(models.Model):
             logger.exception("Unlink Method")
             raise ValidationError(e)
 
+    def reservatioin_cancelreservation_byemployer_action(self):
+        visa = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not visa:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'new_application'
+        else:
+            raise ValidationError("There is Visa for This Application")
 
-
-    def reservatioin_cancelreservation_action(self):
-        self.state = 'canceled'
-
-    def reservatioin_reactivereservation_action(self):
-        self.state = 'active'
+    def reservatioin_cancelreservation_byexofice_action(self):
+        visa = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not visa:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'cancel_application'
+        else:
+            raise ValidationError("There is Visa for This Application")
