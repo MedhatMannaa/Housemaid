@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+
+
+        <record id="expectarrival_form_view" model="ir.ui.view">
+            <field name="name">housemaid.expectarrival</field>
+            <field name="model">housemaid.expectarrival</field>
+            <field name="arch" type="xml">
+                <form string="ExpectingArrival">
+                    <header>
+                        <button name="expectarrival_cancelexpectarrival_action"
+                                string="Cancel This Visa (By Sponsor)"
+                                type="object"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Reservation?"
+                                class="oe_highlight oe_inline"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,canceled,"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="email_receive_date"/>
+                                <field name="expecting_arrival_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="expectarrival_tree_view" model="ir.ui.view">
+            <field name="name">housemaid.expectarrival</field>
+            <field name="model">housemaid.expectarrival</field>
+            <field name="arch" type="xml">
+                <tree string="ExpectingArrival">
+                    <field name="name" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="email_receive_date"/>
+                    <field name="expecting_arrival_date"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="expectarrival_action" model="ir.actions.act_window">
+            <field name="name">expectarrival</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">housemaid.expectarrival</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                    No Visa Recorded
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
