@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+
+        <record id="expect_arrival_form_view" model="ir.ui.view">
+            <field name="name">housemaid.expectarrival</field>
+            <field name="model">housemaid.expectarrival</field>
+            <field name="arch" type="xml">
+                <form string="ExpectArrival">
+                    <header>
+                        <button name="expectarrival_cancelexpectarrival_byemployer_action"
+                                string="Cancel This Expect Arrival (By Sponsor)"
+                                type="object"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Expect Arrival?"
+                                class="oe_highlight oe_inline"/>
+                        <button name="expectarrival_cancelexpectarrival_byexofice_action"
+                                string="Cancel This Expect Arrival (By External Office)"
+                                type="object"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Expect Arrival?"
+                                class="oe_highlight oe_inline"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,havevisa,canceled,"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="email_receive_date"/>
+                                <field name="expecting_arrival_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="expect_arrival_view" model="ir.ui.view">
+            <field name="name">housemaid.expectarrival</field>
+            <field name="model">housemaid.expectarrival</field>
+            <field name="arch" type="xml">
+                <tree string="ExpectArrival">
+                    <field name="name" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="email_receive_date"/>
+                    <field name="expecting_arrival_date"/>
+                    <field name="state"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="expect_arrival_action" model="ir.actions.act_window">
+            <field name="name">ExpectArrival</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">housemaid.expectarrival</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                    No Expect Arrival Recorded
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

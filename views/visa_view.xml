@@ -2,7 +2,7 @@
     <data>
 
 
-        <record id="Visa_form_view" model="ir.ui.view">
+        <record id="visa_form_view" model="ir.ui.view">
             <field name="name">housemaid.visa</field>
             <field name="model">housemaid.visa</field>
             <field name="arch" type="xml">
