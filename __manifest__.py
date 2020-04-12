@@ -30,6 +30,7 @@
         'views/external_offices_view.xml',
         'views/reservation_view.xml',
         'views/visa_view.xml',
+        'views/expecting_arrival_view.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

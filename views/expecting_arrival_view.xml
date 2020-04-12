@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+
+
+        <record id="expecting_arrival_form_view" model="ir.ui.view">
+            <field name="name">housemaid.expectingarrival</field>
+            <field name="model">housemaid.expectingarrival</field>
+            <field name="arch" type="xml">
+                <form string="ExpectingArrival">
+                    <header>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,canceled,havevisa"/>
+                    </header>
+                    <sheet>
+                        <field name="visa_scan" widget='image'
+                               class="oe_avatar" options='{"zoom": true, "preview_image":"visa_scan"}'/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="visa_create_date"/>
+                                <field name="visa_receive_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="expecting_arrival_tree_view" model="ir.ui.view">
+            <field name="name">housemaid.expectingarrival</field>
+            <field name="model">housemaid.expectingarrival</field>
+            <field name="arch" type="xml">
+                <tree string="ExpectingArrival">
+                    <field name="name" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="visa_create_date"/>
+                    <field name="visa_receive_date"/>
+                    <field name="state"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="expecting_arrival_action" model="ir.actions.act_window">
+            <field name="name">ExpectingArrival</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">housemaid.expectingarrival</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                    No Expecting Arrival Recorded
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
