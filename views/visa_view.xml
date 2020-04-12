@@ -21,7 +21,7 @@
                                 confirm="Are you sure you want to cancel this Visa?"
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
-                               statusbar_visible="active,canceled,"/>
+                               statusbar_visible="active,canceled,activewithvisa"/>
                     </header>
                     <sheet>
                         <group>
