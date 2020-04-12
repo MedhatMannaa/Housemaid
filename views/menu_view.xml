@@ -4,17 +4,16 @@
         <menuitem name="Housemaid" id="housemaid.menu_root"/>
         <!--        menu categories-->
         <menuitem name="Main Process" id="housemaid.main_process" parent="housemaid.menu_root"/>
-        <menuitem name="Transactions" id="housemaid.transactions" parent="housemaid.main_process"/>
         <menuitem name="Reports" id="housemaid.reports" parent="housemaid.menu_root"/>
         <menuitem name="Configuration" id="housemaid.configuration" parent="housemaid.menu_root"/>
         <!--        actions-->
         <menuitem name="Application" id="housemaid.application" parent="housemaid.main_process"
                   action="housemaid.housemaid_application_action"/>
-        <menuitem name="Reservation" id="housemaid.reservation" parent="housemaid.transactions"
+        <menuitem name="Reservation" id="housemaid.reservation" parent="housemaid.main_process"
                   action="housemaid.reservation_action"/>
-        <menuitem name="Visa Transactions" id="housemaid.visa" parent="housemaid.transactions"
+        <menuitem name="Visa Transactions" id="housemaid.visa" parent="housemaid.main_process"
                   action="housemaid.visa_action"/>
-        <menuitem name="Expecting Arrival" id="housemaid.expectingarrival" parent="housemaid.transactions"
+        <menuitem name="Expecting Arrival" id="housemaid.expectingarrival" parent="housemaid.main_process"
                   action="housemaid.expecting_arrival_action"/>
         <menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
                   action="housemaid.external_offices_action"/>
