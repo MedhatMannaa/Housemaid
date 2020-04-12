@@ -11,10 +11,10 @@ class Reservation(models.Model):
 
     name = fields.Many2one(comodel_name='housemaid.application', string='name',
                            domain=[('state', '=', 'new_application')], )
-    reservation_date = fields.Date(string="Reservation Date", required=True, defualt=fields.Date.context_today, )
-    customer_name = fields.Char(string="Customer Name", required=True, size=80, )
-    customer_area = fields.Char(string="Customer Area", required=True, size=80, )
-    customer_phone = fields.Char(string="Customer Phone", required=True, size=80, )
+    reservation_date = fields.Date(string="Reservation Date", required=False, defualt=fields.Date.context_today, )
+    customer_name = fields.Char(string="Customer Name", required=False, size=80, )
+    customer_area = fields.Char(string="Customer Area", required=False, size=80, )
+    customer_phone = fields.Char(string="Customer Phone", required=False, size=80, )
     due_amount = fields.Integer(string="DUE Amount", required=True, copy=True)
     cash_payment_amount = fields.Integer(string="Cash Payment", default=0, required=True, copy=True)
     knet_payment_amount = fields.Integer(string="KNET Payment", default=0, required=True, copy=True)
@@ -30,7 +30,7 @@ class Reservation(models.Model):
                                             string="Other Payment Method",
                                             required=False, )
     remarks = fields.Char(string="Remarks", required=False, size=255, )
-    state = fields.Selection(string="Reservation Status", required=True,
+    state = fields.Selection(string="Reservation Status", required=False,
                              selection=[('active', 'Active Reservation'),
                                         ('canceled', 'Canceled Reservation'), ], default='active')
 
