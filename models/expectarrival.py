@@ -1,8 +1,4 @@
 from odoo import models, fields, api
-import logging
-from odoo.exceptions import ValidationError
-
-logger = logging.getLogger(__name__)
 
 
 class ExpectingArrival(models.Model):
@@ -17,44 +13,3 @@ class ExpectingArrival(models.Model):
                               selection=[('active', 'Active Expecting Date'),
                                          ('havevisa', 'Active Expecting Date With Visa'),
                                          ('canceled', 'Canceled Active Expecting'), ], default='active')
-    # override create function
-    @api.model
-    def create(self, vals):
-        try:
-
-            expectarrival = super(ExpectingArrival, self).create(vals)
-
-            application = self.env['housemaid.application'].search([('id', '=', expectarrival.name.id)], limit=1)
-            application.state = 'expecting_arrival'
-
-            return expectarrival
-
-
-        except Exception as e:
-            logger.exception("Create Method")
-            raise ValidationError(e)
-
-    # override write function
-    def write(self, vals):
-        try:
-
-            expectarrival = super(ExpectingArrival, self).write(vals)
-            return expectarrival
-
-
-        except Exception as e:
-            logger.exception("Write Method")
-            raise ValidationError(e)
-
-    # override unlink function
-    def unlink(self):
-        try:
-
-            expectarrival = super(ExpectingArrival, self).unlink()
-            return expectarrival
-
-
-        except Exception as e:
-            logger.exception("Unlink Method")
-            raise ValidationError(e)
-
