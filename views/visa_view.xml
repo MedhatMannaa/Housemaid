@@ -7,6 +7,22 @@
             <field name="model">housemaid.visa</field>
             <field name="arch" type="xml">
                 <form string="Visa">
+                    <header>
+                        <button name="visa_cancelvisa_byemployer_action"
+                                string="Cancel This Visa (By Sponsor)"
+                                type="object"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Reservation?"
+                                class="oe_highlight oe_inline"/>
+                        <button name="visa_cancelvisa_byexofice_action"
+                                string="Cancel This Visa (By External Office)"
+                                type="object"
+                                states="active"
+                                confirm="Are you sure you want to cancel this Reservation?"
+                                class="oe_highlight oe_inline"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,canceled,"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
@@ -55,7 +71,7 @@
                     <field name="vise_payment_amount"/>
                     <field name="other_payment_amount"/>
                     <field name="other_payment_method"/>
-                    <field name="status"/>
+                    <field name="state"/>
                     <field name="remarks"/>
                 </tree>
             </field>

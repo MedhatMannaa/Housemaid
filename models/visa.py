@@ -1,4 +1,8 @@
 from odoo import models, fields, api
+import logging
+from odoo.exceptions import ValidationError
+
+logger = logging.getLogger(__name__)
 
 
 class Visa(models.Model):
@@ -26,6 +30,64 @@ class Visa(models.Model):
                                             string="Other Payment Method",
                                             required=False, )
     remarks = fields.Char(string="Remarks", required=False, size=255, )
-    status = fields.Selection(string="Visa Status", required=True,
+    state = fields.Selection(string="Visa Status", required=True,
                               selection=[('active', 'Active Visa'),
                                          ('canceled', 'Canceled Visa'), ], default='active')
+    # override create function
+    @api.model
+    def create(self, vals):
+        try:
+
+            visa = super(Visa, self).create(vals)
+
+            application = self.env['housemaid.application'].search([('id', '=', visa.name.id)], limit=1)
+            application.state = 'visa'
+
+            return visa
+
+
+        except Exception as e:
+            logger.exception("Create Method")
+            raise ValidationError(e)
+
+    # override write function
+    def write(self, vals):
+        try:
+
+            visa = super(Visa, self).write(vals)
+            return visa
+
+
+        except Exception as e:
+            logger.exception("Write Method")
+            raise ValidationError(e)
+
+    # override unlink function
+    def unlink(self):
+        try:
+
+            visa = super(Visa, self).unlink()
+            return visa
+
+
+        except Exception as e:
+            logger.exception("Unlink Method")
+            raise ValidationError(e)
+
+    def visa_cancelvisa_byemployer_action(self):
+        expect_arrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not expect_arrival:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'new_application'
+        else:
+            raise ValidationError("There is Expecting Arrival Transaction for This Application")
+
+    def visa_cancelvisa_byexofice_action(self):
+        expect_arrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not expect_arrival:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'cancel_application'
+        else:
+            raise ValidationError("There is Expecting Arrival Transaction for This Application")
