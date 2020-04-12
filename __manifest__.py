@@ -31,6 +31,7 @@
         'views/reservation_view.xml',
         'views/visa_view.xml',
         'views/external_offices_view.xml',
+        'views/menu_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
