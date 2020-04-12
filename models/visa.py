@@ -32,6 +32,7 @@ class Visa(models.Model):
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Visa Status", required=True,
                               selection=[('active', 'Active Visa'),
+                                         ('activewithvisa', 'Visa With Expecting Arrival'),
                                          ('canceled', 'Canceled Visa'), ], default='active')
     # override create function
     @api.model
@@ -75,8 +76,8 @@ class Visa(models.Model):
             raise ValidationError(e)
 
     def visa_cancelvisa_byemployer_action(self):
-        expectarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
-        if not expectarrival:
+        expectingarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not expectingarrival:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
             application.state = 'new_application'
@@ -84,8 +85,8 @@ class Visa(models.Model):
             raise ValidationError("There is Expecting Arrival Transaction for This Application")
 
     def visa_cancelvisa_byexofice_action(self):
-        expectarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
-        if not expectarrival:
+        expectingarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not expectingarrival:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
             application.state = 'cancel_application'
