@@ -13,6 +13,8 @@
                   action="housemaid.reservation_action"/>
         <menuitem name="Visa Transactions" id="housemaid.visa" parent="housemaid.main_process"
                   action="housemaid.visa_action"/>
+        <menuitem name="Expecting Arrival" id="housemaid.expectingarrival" parent="housemaid.main_process"
+                  action="housemaid.expecting_arrival_action"/>
         <menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
                   action="housemaid.external_offices_action"/>
 
