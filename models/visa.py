@@ -75,8 +75,8 @@ class Visa(models.Model):
             raise ValidationError(e)
 
     def visa_cancelvisa_byemployer_action(self):
-        expect_arrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
-        if not expect_arrival:
+        expectarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not expectarrival:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
             application.state = 'new_application'
@@ -84,8 +84,8 @@ class Visa(models.Model):
             raise ValidationError("There is Expecting Arrival Transaction for This Application")
 
     def visa_cancelvisa_byexofice_action(self):
-        expect_arrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
-        if not expect_arrival:
+        expectarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        if not expectarrival:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
             application.state = 'cancel_application'
