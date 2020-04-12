@@ -1,22 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!--        Top menu item-->
-        <menuitem name="Housemaid" id="housemaid.menu_root"/>
-        <!--        menu categories-->
-        <menuitem name="Main Process" id="housemaid.main_process" parent="housemaid.menu_root"/>
-        <menuitem name="Reports" id="housemaid.reports" parent="housemaid.menu_root"/>
-        <menuitem name="Configuration" id="housemaid.configuration" parent="housemaid.menu_root"/>
-        <!--        actions-->
-        <menuitem name="Application" id="housemaid.application" parent="housemaid.main_process"
-                  action="housemaid.housemaid_application_action"/>
-        <menuitem name="Reservation" id="housemaid.reservation" parent="housemaid.main_process"
-                  action="housemaid.reservation_action"/>
-        <menuitem name="Visa Transactions" id="housemaid.visa" parent="housemaid.main_process"
-                  action="housemaid.visa_action"/>
-        <menuitem name="Expecting Arrival" id="housemaid.expectingarrival" parent="housemaid.main_process"
-                  action="housemaid.expecting_arrival_action"/>
-        <menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
-                  action="housemaid.external_offices_action"/>
+
+        <!--        Top menu item -->
+        <menuitem id="housemaid.main_menu" name="Housemaid" sequence="1"/>
+			<!--        menu categories-->
+			<menuitem name="Main Process" id="housemaid.main_process" parent="housemaid.main_menu" sequence="2"/>
+			<menuitem name="Reports" id="housemaid.reports" parent="housemaid.main_menu" sequence="3"/>
+			<menuitem name="Configuration" id="housemaid.configuration" parent="housemaid.main_menu" sequence="4"/>
+				<!-- Adviser sub-menus -->
+				<menuitem name="Application" id="housemaid.application" parent="housemaid.main_process"
+                  action="housemaid.housemaid_application_action" sequence="5"/>
+				<menuitem name="Reservation" id="housemaid.reservation" parent="housemaid.main_process"
+                  action="housemaid.reservation_action" sequence="6"/>
+				<menuitem name="Visa" id="housemaid.visa" parent="housemaid.main_process"
+                  action="housemaid.visa_action" sequence="7"/>
+				<menuitem name="Expecting Arrival" id="housemaid.expectingarrival" parent="housemaid.main_process"
+                  action="housemaid.expecting_arrival_action" sequence="8"/>
+				<menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
+                  action="housemaid.external_offices_action" sequence="9"/>
 
     </data>
 </odoo>
