@@ -27,11 +27,10 @@
         'security/housemaid_security.xml',
         'security/ir.model.access.csv',
         'views/application_view.xml',
-        'views/external_offices_view.xml',
+        'views/expecting_arrival_view.xml',
         'views/reservation_view.xml',
         'views/visa_view.xml',
-        'views/expecting_arrival_view.xml',
-        'views/menu.xml',
+        'views/external_offices_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
