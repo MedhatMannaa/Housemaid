@@ -2,7 +2,7 @@
     <data>
 
 
-        <record id="visa_form_view" model="ir.ui.view">
+        <record id="Visa_form_view" model="ir.ui.view">
             <field name="name">housemaid.visa</field>
             <field name="model">housemaid.visa</field>
             <field name="arch" type="xml">
@@ -12,13 +12,13 @@
                                 string="Cancel This Visa (By Sponsor)"
                                 type="object"
                                 states="active"
-                                confirm="Are you sure you want to cancel this Reservation?"
+                                confirm="Are you sure you want to cancel this Visa?"
                                 class="oe_highlight oe_inline"/>
                         <button name="visa_cancelvisa_byexofice_action"
                                 string="Cancel This Visa (By External Office)"
                                 type="object"
                                 states="active"
-                                confirm="Are you sure you want to cancel this Reservation?"
+                                confirm="Are you sure you want to cancel this Visa?"
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="active,canceled,"/>
