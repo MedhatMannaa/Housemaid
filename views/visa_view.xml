@@ -22,6 +22,7 @@
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="active,canceled,activewithvisa"/>
+
                     </header>
                     <sheet>
                         <field name="visa_scan" widget='image'
