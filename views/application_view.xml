@@ -29,15 +29,17 @@
                         <field name="application_scan" widget='image'
                                class="oe_avatar" options='{"zoom": true, "preview_image":"application_scan"}'/>
                         <div class="oe_title">
-                            <h2>
-                                <field name="name"/>
-                            </h2>
-                            <h4>
-                                <field name="ref_number"/>
-                            </h4>
-                            <h4>
-                                <field name="create_date"/>
-                            </h4>
+                            <group>
+                                <h2>
+                                    <field name="name"/>
+                                </h2>
+                                <h4>
+                                    <field name="ref_number"/>
+                                </h4>
+                                <h4>
+                                    <field name="create_date"/>
+                                </h4>
+                            </group>
                         </div>
                         <group>
                             <group>
