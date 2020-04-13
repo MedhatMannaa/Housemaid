@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+
+
+        <record id="arrived_housemaid_form_view" model="ir.ui.view">
+            <field name="name">housemaid.arrivedhousemaid</field>
+            <field name="model">housemaid.arrivedhousemaid</field>
+            <field name="arch" type="xml">
+                <form string="ArrivedHousemaid">
+                    <header>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,deported,delivered,newsponsordelivered,canceled"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="driver_name"/>
+                                <field name="arrival_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="arrived_housemaid_tree_view" model="ir.ui.view">
+            <field name="name">housemaid.arrivedhousemaid</field>
+            <field name="model">housemaid.arrivedhousemaid</field>
+            <field name="arch" type="xml">
+                <tree string="ArrivedHousemaid">
+                    <field name="name" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="driver_name"/>
+                    <field name="arrival_date"/>
+                    <field name="state"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="arrived_housemaid_action" model="ir.actions.act_window">
+            <field name="name">ArrivedHousemaid</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">housemaid.arrivedhousemaid</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                    No Arrival Recorded
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -4,6 +4,7 @@ access_housemaid_externaloffices,housemaid.externaloffices,housemaid.model_house
 access_housemaid_reservation,housemaid.reservation,housemaid.model_housemaid_reservation,housemaid_users_group,1,1,1,1
 access_housemaid_visa,housemaid.visa,housemaid.model_housemaid_visa,housemaid_users_group,1,1,1,1
 access_housemaid_expectingarrival,housemaid.expectingarrival,housemaid.model_housemaid_expectingarrival,housemaid_users_group,1,1,1,1
+access_housemaid_arrivedhousemaid,housemaid.arrivedhousemaid,housemaid.model_housemaid_arrivedhousemaid,housemaid_users_group,1,1,1,1
 
 
 

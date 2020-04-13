@@ -30,6 +30,7 @@
         'views/reservation_view.xml',
         'views/visa_view.xml',
         'views/expecting_arrival_view.xml',
+        'views/arrived_housemaid_view.xml',
         'views/external_offices_view.xml',
         'views/menu_view.xml',
     ],

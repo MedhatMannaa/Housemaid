@@ -17,8 +17,10 @@
                   action="housemaid.visa_action" sequence="7"/>
 				<menuitem name="Expecting Arrival" id="housemaid.expectingarrival" parent="housemaid.main_process"
                   action="housemaid.expecting_arrival_action" sequence="8"/>
+		        <menuitem name="Arrived Housemaid" id="housemaid.arrivedhousemaid" parent="housemaid.main_process"
+                  action="housemaid.arrived_housemaid_action" sequence="9"/>
 				<menuitem name="External Offices" id="housemaid.externaloffices" parent="housemaid.configuration"
-                  action="housemaid.external_offices_action" sequence="9"/>
+                  action="housemaid.external_offices_action" sequence="10"/>
 
     </data>
 </odoo>
