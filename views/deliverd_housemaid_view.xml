@@ -10,7 +10,6 @@
                     <header>
                         <field name="state" widget="statusbar"
                                statusbar_visible="active,canceled"/>
-
                     </header>
                     <sheet>
                         <group>
