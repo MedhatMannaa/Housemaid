@@ -6,4 +6,5 @@ from . import reservation
 from . import visa
 from . import expectingarrival
 from . import arrivedhousemaid
+from . import deliverdhousemaid
 

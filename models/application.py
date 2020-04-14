@@ -12,7 +12,7 @@ app_state = [('new_application', 'New Application'),
              ('visa', 'Visa'),
              ('expecting_arrival', 'Expecting Arrival'),
              ('arrived', 'Arrived'),
-             ('delivered', 'Delivered'),
+             ('delivered', 'Delivered Housemaid'),
              ]
 
 

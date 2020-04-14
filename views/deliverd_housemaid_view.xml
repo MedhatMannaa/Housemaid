@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+
+
+        <record id="deliverd_housemaid_form_view" model="ir.ui.view">
+            <field name="name">housemaid.deliverdhousemaid</field>
+            <field name="model">housemaid.deliverdhousemaid</field>
+            <field name="arch" type="xml">
+                <form string="DeliverdHousemaid">
+                    <header>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,canceled"/>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="create_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="cash_payment_amount"/>
+                                <field name="knet_payment_amount"/>
+                                <field name="vise_payment_amount"/>
+                            </group>
+                            <group>
+                                <field name="other_payment_amount"/>
+                                <field name="other_payment_method"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remarks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="deliverd_housemaid_tree_view" model="ir.ui.view">
+            <field name="name">housemaid.deliverdhousemaid</field>
+            <field name="model">housemaid.deliverdhousemaid</field>
+            <field name="arch" type="xml">
+                <tree string="DeliverdHousemaid">
+                    <field name="name" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="create_date"/>
+                    <field name="cash_payment_amount"/>
+                    <field name="knet_payment_amount"/>
+                    <field name="vise_payment_amount"/>
+                    <field name="other_payment_amount"/>
+                    <field name="other_payment_method"/>
+                    <field name="state"/>
+                    <field name="remarks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="deliverd_housemaid_action" model="ir.actions.act_window">
+            <field name="name">DeliverdHousemaid</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">housemaid.deliverdhousemaid</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                    No Deliverd Housemaid Transactions Recorded
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
