@@ -58,3 +58,20 @@ class ExpectingArrival(models.Model):
             logger.exception("Unlink Method")
             raise ValidationError(e)
 
+    def expectingarrival_cancel_byemployer_action(self):
+        arrivedhousemaid = self.env['housemaid.expectingarrival'].search([('name', '=', self.name.id)], limit=1)
+        if not arrivedhousemaid:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'new_application'
+        else:
+            raise ValidationError("There is Expecting Arrival Transaction for This Application")
+
+    def expectingarrival_cancel_byexofice_action(self):
+        arrivedhousemaid = self.env['housemaid.expectingarrival'].search([('name', '=', self.name.id)], limit=1)
+        if not arrivedhousemaid:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'cancel_application'
+        else:
+            raise ValidationError("There is Expecting Arrival Transaction for This Application")
