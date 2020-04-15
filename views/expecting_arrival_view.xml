@@ -8,17 +8,11 @@
             <field name="arch" type="xml">
                 <form string="ExpectingArrival">
                     <header>
-                        <button name="expectingarrival_cancel_byemployer_action"
-                                string="Cancel This Visa (By Sponsor)"
+                        <button name="expectingarrival_cancel_action"
+                                string="Cancel This Transaction"
                                 type="object"
                                 states="active"
-                                confirm="Are you sure you want to cancel this Visa?"
-                                class="oe_highlight oe_inline"/>
-                        <button name="expectingarrival_cancel_byexofice_action"
-                                string="Cancel This Visa (By External Office)"
-                                type="object"
-                                states="active"
-                                confirm="Are you sure you want to cancel this Visa?"
+                                confirm="Are you sure you want to cancel this Transaction?"
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="active,canceled,havevisa"/>
