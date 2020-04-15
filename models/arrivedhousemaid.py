@@ -61,3 +61,12 @@ class ArrivedHousemaid(models.Model):
         except Exception as e:
             logger.exception("Unlink Method")
             raise ValidationError(e)
+
+    def arrivedhousemaid_cancel_action(self):
+        arrived = self.env['housemaid.arrivedhousemaid'].search([('name', '=', self.name.id)], limit=1)
+        if not arrived:
+            self.state = 'canceled'
+            application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
+            application.state = 'visa'
+        else:
+            raise ValidationError("There is Expecting Arrival Transaction for This Application")
