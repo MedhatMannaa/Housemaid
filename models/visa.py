@@ -32,9 +32,9 @@ class Visa(models.Model):
                                             required=False, )
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Visa Status", required=True,
-                              selection=[('active', 'Active Visa'),
-                                         ('activewithvisa', 'Visa With Expecting Arrival'),
-                                         ('canceled', 'Canceled Visa'), ], default='active')
+                             selection=[('active', 'Active Visa'),
+                                        ('canceled', 'Canceled Visa'), ], default='active')
+
     # override create function
     @api.model
     def create(self, vals):

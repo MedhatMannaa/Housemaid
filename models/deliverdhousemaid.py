@@ -26,8 +26,9 @@ class DeliverdHousemaid(models.Model):
                                             required=False, )
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Deliver Housemaid Status", required=True,
-                              selection=[('active', 'Housemaid Deliverd'),
-                                         ('canceled', 'Deliverd Canceled'), ], default='active')
+                             selection=[('active', 'Housemaid Deliverd'),
+                                        ('canceled', 'Deliverd Canceled'), ], default='active')
+
     # override create function
     @api.model
     def create(self, vals):
@@ -68,4 +69,3 @@ class DeliverdHousemaid(models.Model):
         except Exception as e:
             logger.exception("Unlink Method")
             raise ValidationError(e)
-

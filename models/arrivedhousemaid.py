@@ -16,9 +16,6 @@ class ArrivedHousemaid(models.Model):
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Arrived Status", required=True,
                              selection=[('active', 'Arrived'),
-                                        ('deported', 'Deported Back'),
-                                        ('delivered', 'Delivered'),
-                                        ('newsponsordelivered', 'Delivered With New Sponsor'),
                                         ('canceled', 'Canceled Delivered'), ], default='active')
 
     # override create function

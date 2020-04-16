@@ -15,7 +15,6 @@ class ExpectingArrival(models.Model):
     remarks = fields.Char(string="Remarks", required=False, size=255, )
     state = fields.Selection(string="Visa Status", required=True,
                               selection=[('active', 'Active Expect Arrival'),
-                                         ('havevisa', 'Active Expect Arrival'),
                                          ('canceled', 'Canceled Visa'), ], default='active')
     # override create function
     @api.model
