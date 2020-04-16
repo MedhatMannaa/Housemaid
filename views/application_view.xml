@@ -21,8 +21,8 @@
                                 confirm="Are you sure you want to Reactive this Application?"
                                 class="oe_highlight oe_inline"/>
                         <field name="state" widget="statusbar"
-                               statusbar_visible="new_application,cancel_application,reservation,visa,expecting_arrival
-                                          ,arrived,delivered"/>
+                               statusbar_visible=
+                                       "new_application,cancel_application,reservation,visa,expecting_arrival,arrived,delivered,released"/>
                     </header>
                     <sheet>
                         <field name="application_scan" widget='image'

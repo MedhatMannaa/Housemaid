@@ -2,8 +2,6 @@ from odoo import models, fields, api
 import logging
 from odoo.exceptions import ValidationError
 
-
-
 logger = logging.getLogger(__name__)
 
 app_state = [('new_application', 'New Application'),
@@ -13,6 +11,7 @@ app_state = [('new_application', 'New Application'),
              ('expecting_arrival', 'Expecting Arrival'),
              ('arrived', 'Arrived'),
              ('delivered', 'Delivered Housemaid'),
+             ('released', 'Released Housemaid'),
              ]
 
 
@@ -78,8 +77,6 @@ class Application(models.Model):
     arrival_date = fields.Date(string="Arrival Date", required=False, )
     state = fields.Selection(string="Application Status", required=True, selection=app_state, default='new_application')
 
-
-
     # override create function
     @api.model
     def create(self, vals):
@@ -93,13 +90,9 @@ class Application(models.Model):
             logger.exception("Create Method")
             raise ValidationError(e)
 
-
-
-
     # override write function
     def write(self, vals):
         try:
-
 
             application = super(Application, self).write(vals)
             return application
@@ -108,8 +101,6 @@ class Application(models.Model):
         except Exception as e:
             logger.exception("Write Method")
             raise ValidationError(e)
-
-
 
     # override unlink function
     def unlink(self):
@@ -123,14 +114,8 @@ class Application(models.Model):
             logger.exception("Unlink Method")
             raise ValidationError(e)
 
-
-
     def application_cancelapplication_action(self):
         self.state = 'cancel_application'
 
     def application_reactiveapplication_action(self):
         self.state = 'new_application'
-
-
-
-
