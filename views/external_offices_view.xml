@@ -21,7 +21,6 @@
                         <group>
                             <field name="owner_name"/>
                             <field name="bank_name"/>
-                            <field name="bank_ac_number"/>
                         </group>
                         <group>
                             <field name="adress"/>
@@ -49,7 +48,6 @@
                     <field name="owner_name"/>
                     <field name="country"/>
                     <field name="bank_name"/>
-                    <field name="bank_ac_number"/>
                     <field name="adress"/>
                     <field name="phone_number"/>
                     <field name="fax_number"/>
