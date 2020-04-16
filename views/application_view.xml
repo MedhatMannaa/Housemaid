@@ -23,7 +23,6 @@
                         <field name="state" widget="statusbar"
                                statusbar_visible="new_application,cancel_application,reservation,visa,expecting_arrival
                                           ,arrived,delivered"/>
-
                     </header>
                     <sheet>
                         <field name="application_scan" widget='image'

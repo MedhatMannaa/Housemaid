@@ -10,7 +10,7 @@ class Visa(models.Model):
     _description = 'Full Housemaid Visa Transaction Information'
 
     name = fields.Many2one(comodel_name='housemaid.application', string='name', domain=[('state', '=', 'reservation')])
-    visa_scan = fields.Image(string="Visa Image", )
+    visa_scan = fields.Image(string="Visa Scan", )
     customer = fields.Char(string="Customer", required=False, size=120, )
     visa_number = fields.Char(string="Visa Number", required=False, size=80, )
     labor_id = fields.Char(string="Labor ID", required=False, size=80, )
@@ -77,7 +77,8 @@ class Visa(models.Model):
             raise ValidationError(e)
 
     def visa_cancelvisa_byemployer_action(self):
-        expectingarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        expectingarrival = self.env['housemaid.expectingarrival'].search([('name', '=', self.name.id),
+                                                                          ('state', '=', 'active')], limit=1)
         if not expectingarrival:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
@@ -86,7 +87,8 @@ class Visa(models.Model):
             raise ValidationError("There is Expecting Arrival Transaction for This Application")
 
     def visa_cancelvisa_byexofice_action(self):
-        expectingarrival = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        expectingarrival = self.env['housemaid.expectingarrival'].search([('name', '=', self.name.id),
+                                                                          ('state', '=', 'active')], limit=1)
         if not expectingarrival:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)

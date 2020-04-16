@@ -59,7 +59,8 @@ class ExpectingArrival(models.Model):
 
 
     def expectingarrival_cancel_action(self):
-        arrivedhousemaid = self.env['housemaid.expectingarrival'].search([('name', '=', self.name.id)], limit=1)
+        arrivedhousemaid = self.env['housemaid.arrivedhousemaid'].search([('name', '=', self.name.id),
+                                                                          ('state', '=', 'active')], limit=1)
         if not arrivedhousemaid:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
