@@ -9,9 +9,8 @@ class Visa(models.Model):
     _name = 'housemaid.visa'
     _description = 'Full Housemaid Visa Transaction Information'
 
-
     name = fields.Many2one(comodel_name='housemaid.application', string='name', domain=[('state', '=', 'reservation')])
-    visa_scan = fields.Image(string="Visa Scan", )
+    application_visa = fields.Image(string="Visa Image", )
     customer = fields.Many2one(comodel_name='res.partner', string='Customer')
     visa_number = fields.Char(string="Visa Number", required=False, size=80, )
     labor_id = fields.Char(string="Labor ID", required=False, size=80, )
