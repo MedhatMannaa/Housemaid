@@ -76,7 +76,8 @@ class Reservation(models.Model):
             raise ValidationError(e)
 
     def reservatioin_cancelreservation_byemployer_action(self):
-        visa = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        visa = self.env['housemaid.visa'].search([('name', '=', self.name.id),
+                                                  ('state', '=', 'active')], limit=1)
         if not visa:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
@@ -85,7 +86,8 @@ class Reservation(models.Model):
             raise ValidationError("There is Visa for This Application")
 
     def reservatioin_cancelreservation_byexofice_action(self):
-        visa = self.env['housemaid.visa'].search([('name', '=', self.name.id)], limit=1)
+        visa = self.env['housemaid.visa'].search([('name', '=', self.name.id),
+                                                  ('state', '=', 'active')], limit=1)
         if not visa:
             self.state = 'canceled'
             application = self.env['housemaid.application'].search([('id', '=', self.name.id)], limit=1)
