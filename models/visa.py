@@ -12,6 +12,7 @@ class Visa(models.Model):
     name = fields.Many2one(comodel_name='housemaid.application', string='name', domain=[('state', '=', 'reservation')])
     customer = fields.Many2one(comodel_name='res.partner', string='Customer')
     visa_number = fields.Char(string="Visa Number", required=False, size=80, )
+    visa_scan = fields.Image(string="Visa Image", )
     labor_id = fields.Char(string="Labor ID", required=False, size=80, )
     visa_create_date = fields.Date(string="Visa Create Date", required=False, )
     visa_receive_date = fields.Date(string="Visa Receive Date", required=False, defualt=fields.Date.context_today, )
